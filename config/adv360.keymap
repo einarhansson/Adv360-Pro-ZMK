@@ -26,6 +26,17 @@
             #binding-cells = <0>;
             bindings = <&kp LEFT_GUI>, <&kp LC(LG(Q))>;
         };
+
+        Lock_and_Command: Lock_and_Command {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LOCK_AND_COMMAND";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            hold-trigger-key-positions = <36 35 15>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
     };
 
     keymap {
@@ -34,11 +45,11 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp EQUAL  &kp N1     &kp N2    &kp N3    &kp N4     &kp N5  &tog 1                                                             &mo 3          &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
-&kp TAB    &kp Q      &kp W     &kp F     &kp P      &kp B   &none                                                              &none          &kp J   &kp L   &kp U      &kp Y     &kp SEMI  &kp BSLH
-&kp ESC    &kp A      &kp R     &kp S     &kp T      &kp G   &none      &kp LCTRL  &command_lock      &kp LG(SPACE)  &kp LALT   &none          &kp M   &kp N   &kp E      &kp I     &kp O     &kp SQT
-&kp LSHFT  &kp Z      &kp X     &kp C     &kp D      &kp V                         &kp HOME           &kp PG_UP                                &kp K   &kp H   &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-&mo 2      &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT          &kp SPACE  &kp DEL    &kp END            &kp PG_DN      &kp ENTER  &kp BACKSPACE          &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &mo 2
+&kp EQUAL  &kp N1     &kp N2    &kp N3    &kp N4     &kp N5  &tog 1                                                                                    &mo 3          &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp TAB    &kp Q      &kp W     &kp F     &kp P      &kp B   &none                                                                                     &none          &kp J   &kp L   &kp U      &kp Y     &kp SEMI  &kp BSLH
+&kp ESC    &kp A      &kp R     &kp S     &kp T      &kp G   &none      &kp LCTRL  &Lock_and_Command LG(LC(Q)) LEFT_GUI      &kp LG(SPACE)  &kp LALT   &none          &kp M   &kp N   &kp E      &kp I     &kp O     &kp SQT
+&kp LSHFT  &kp Z      &kp X     &kp C     &kp D      &kp V                         &kp HOME                                  &kp PG_UP                                &kp K   &kp H   &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+&mo 2      &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT          &kp SPACE  &kp DEL    &kp END                                   &kp PG_DN      &kp ENTER  &kp BACKSPACE          &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &mo 2
             >;
         };
 
